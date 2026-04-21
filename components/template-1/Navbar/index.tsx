@@ -48,7 +48,7 @@ export default function Navbar() {
         style={
           !scrolled
             ? {
-                backgroundImage: "url('/template-1/top-bar.png')",
+                backgroundImage: "url('/template-1/nav/top-bar.png')",
                 backgroundSize: "auto 100%",
                 backgroundRepeat: "repeat-x",
                 backgroundPosition: "bottom",

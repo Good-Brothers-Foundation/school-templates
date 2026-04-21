@@ -76,7 +76,7 @@ export default function Hero() {
             {/* Main Student Image */}
             <div className="relative z-0 h-100 w-75 md:h-125 md:w-100">
               <Image
-                src="/template-1/hero-1.png"
+                src="/template-1/hero/hero-1.png"
                 alt="Smiling student"
                 fill
                 className="object-contain"
@@ -93,7 +93,7 @@ export default function Hero() {
         <div className="absolute left-1/3 bottom-20 animate-tilt w-fit ">
           <Image
             alt="car-shape"
-            src={"/template-1/shape-3.png"}
+            src={"/template-1/hero/shape-3.png"}
             width={80}
             height={80}
           />
@@ -101,7 +101,7 @@ export default function Hero() {
         <div className="absolute left-2 bottom-20 block animate-upside-down w-fit">
           <Image
             alt="bee-shape"
-            src={"/template-1/shape-1.png"}
+            src={"/template-1/hero/shape-1.png"}
             width={80}
             height={80}
           />
@@ -109,7 +109,7 @@ export default function Hero() {
         <div className="absolute left-1/2 bottom-156 animate-tilt w-fit">
           <Image
             alt="cloud-shape"
-            src={"/template-1/shape-2.png"}
+            src={"/template-1/hero/shape-2.png"}
             width={80}
             height={80}
           />
@@ -117,7 +117,7 @@ export default function Hero() {
         <div className="absolute left-1/2 -translate-1/2 bottom-0  w-fit">
           <Image
             alt="alphabets-shape"
-            src={"/template-1/shape-4.png"}
+            src={"/template-1/hero/shape-4.png"}
             width={250}
             height={100}
           />
@@ -125,7 +125,7 @@ export default function Hero() {
         <div className="absolute left-full -translate-x-full bottom-170 animate-tilt w-fit">
           <Image
             alt="pencil-shape"
-            src={"/template-1/shape-5.png"}
+            src={"/template-1/hero/shape-5.png"}
             width={150}
             height={80}
           />
@@ -133,17 +133,8 @@ export default function Hero() {
       </Wrapper>
 
       {/* Cloud Bottom Divider */}
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-0">
-        <svg
-          className="relative block h-20 w-full"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M0,0 C150,90 400,120 600,120 C800,120 1050,90 1200,0 L1200,120 L0,120 Z"
-            fill="#ffffff"
-          ></path>
-        </svg>
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-0 h-38 scale-105">
+       <Image src={"/template-1/hero/cloud.png"} alt="cloud image" fill className="w-full" />
       </div>
     </section>
   );

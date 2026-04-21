@@ -25,8 +25,8 @@ export default function Logo() {
         <line x1="20" y1="16" x2="27" y2="18" stroke="var(--primary-template-1)" strokeWidth="2" strokeLinecap="round" />
       </svg>
 
-      <span className="font-brand font-black text-[1.6rem] leading-none tracking-tight text-secondary">
-        Kidzu
+      <span className="font-brand font-black text-[1.6rem] leading-none tracking-tight text-primary-template-1">
+        CS GLOBAL
       </span>
     </Link>
   )
