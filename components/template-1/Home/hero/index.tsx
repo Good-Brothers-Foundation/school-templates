@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import AppButton from "../../AppButton";
+import Wrapper from "@/components/ui/Wrapper";
 
 export default function Hero() {
   return (
@@ -39,8 +40,8 @@ export default function Hero() {
             `}
       </style>
 
-      <div className="container mx-auto px-6 lg:px-12">
-        <div className="flex items-center gap-12 lg:grid-cols-2">
+      <Wrapper className="container mx-auto px-6 lg:px-12">
+        <div className="flex items-center gap-12 lg:flex-row flex-col">
           {/* Text Content */}
           <div className="z-10 space-y-6">
             <span className="text-sm font-bold tracking-widest text-orange-500 uppercase italic">
@@ -84,11 +85,11 @@ export default function Hero() {
             </div>
           </div>
         </div>
-      </div>
+      </Wrapper>
 
       {/* shapes */}
 
-      <div className="relative h-2 max-w-7xl mx-auto">
+      <Wrapper className="relative h-2 ">
         <div className="absolute left-1/3 bottom-20 animate-tilt w-fit ">
           <Image
             alt="car-shape"
@@ -129,7 +130,7 @@ export default function Hero() {
             height={80}
           />
         </div>
-      </div>
+      </Wrapper>
 
       {/* Cloud Bottom Divider */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-0">
