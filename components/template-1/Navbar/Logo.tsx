@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export default function Logo() {
   return (
-    <Link href="/" className="flex items-center gap-2 shrink-0" aria-label="Kidzu home">
+    <Link href="/" className="flex items-center gap-2 shrink-0" aria-label="CS Global Primary School home">
       {/* Star-figure icon */}
       <svg
         width="38"

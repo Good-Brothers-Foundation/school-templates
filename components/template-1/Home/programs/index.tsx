@@ -165,7 +165,7 @@ export default function ProgramsSection() {
       </Wrapper>
 
       {/* ── Floating Decorative Icons ── */}
-      <div className="absolute left-10 top-1/2 text-4xl animate-bounce opacity-40">
+      <div className="absolute left-20 -rotate-45 top-1/2 text-4xl animate-bounce animat opacity-40">
         🐯
       </div>
       <div className="absolute right-10 bottom-1/4 text-4xl rotate-12 opacity-40">

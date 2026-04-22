@@ -12,11 +12,11 @@ const steps = [
 
 export default function Admission() {
   return (
-    <section id="admission" className="relative overflow-hidden bg-gradient-sky py-24">
+    <section id="admission" className="relative overflow-hidden bg-gradient-sky py-24 font-quicksand">
       <Wrapper>
         <div className="reveal mx-auto mb-14 max-w-2xl text-center">
           <span className="text-sm font-bold uppercase tracking-widest text-primary-template-1">Admission Process</span>
-          <h2 className="mt-3 font-display text-4xl font-black md:text-5xl text-balance">
+          <h2 className="mt-3 font-display text-4xl font-bold md:text-5xl text-balance">
             Four Friendly Steps To Join Us
           </h2>
         </div>
@@ -48,7 +48,7 @@ export default function Admission() {
         </ol>
 
         <div className="reveal mt-14 text-center">
-          <AppButton className="rounded-full bg-gradient-warm px-8 py-6 shadow-soft hover:shadow-glow">
+          <AppButton icon>
             <a href="#contact">Start Your Application</a>
           </AppButton>
         </div>

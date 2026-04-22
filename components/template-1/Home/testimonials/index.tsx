@@ -1,77 +1,144 @@
+"use client";
+
 import Wrapper from "@/components/ui/Wrapper";
-import { Quote, Star } from "lucide-react";
+import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay } from "swiper/modules";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
 
 const reviews = [
   {
-    name: "Jessica R.",
-    role: "Mother of Mia, 4",
-    img: "https://images.pexels.com/photos/37148307/pexels-photo-37148307.jpeg",
-    text: "The teachers genuinely love what they do. Mia comes home glowing every single day with new stories to tell.",
-    bg: "bg-[#FFDFCC]",
+    role: "Parent of Nursery Student",
+    img: "/template-1/testimonials/client-1.png",
+    text: "This school has provided a safe, caring, and joyful environment for my child. The teachers are very supportive and attentive.",
   },
   {
-    name: "David L.",
-    role: "Father of Noah, 5",
-    img: "https://images.pexels.com/photos/36687795/pexels-photo-36687795.jpeg",
-    text: "We toured five schools and SunnySprouts felt like home immediately. Safe, warm, and beautifully thoughtful.",
-    bg: "bg-[#CAECFC]",
+    role: "Parent of Nursery Student",
+    img: "/template-1/testimonials/client-2.png",
+    text: "This school has provided a safe, caring, and joyful environment for my child. The teachers are very supportive and attentive.",
   },
   {
-    name: "Anita K.",
-    role: "Mother of Aria, 3",
-    img: "https://images.pexels.com/photos/36803099/pexels-photo-36803099.jpeg",
-    text: "From the curriculum to the kindness, everything is top-notch. Aria is reading and singing more than ever!",
-    bg: "bg-[#E6D8FA]",
+    role: "Parent of Nursery Student",
+    img: "/template-1/testimonials/client-3.png",
+    text: "This school has provided a safe, caring, and joyful environment for my child. The teachers are very supportive and attentive.",
+  },
+  {
+    role: "Parent of Nursery Student",
+    img: "/template-1/testimonials/client-4.png",
+    text: "This school has provided a safe, caring, and joyful environment for my child. The teachers are very supportive and attentive.",
   },
 ];
 
 export default function Testimonials() {
   return (
-    <section className="py-24 bg-background">
+    <section className="py-24 bg-white overflow-hidden font-quicksand">
       <Wrapper>
-        <div className="reveal mx-auto mb-14 max-w-2xl text-center">
-          <span className="text-sm font-bold uppercase tracking-widest text-primary-template-1">
-            Testimonials
-          </span>
-          <h2 className="mt-3 font-display text-4xl font-black md:text-5xl text-balance">
-            Loved By Parents, Adored By Kids
-          </h2>
+        {/* --- Header Section --- */}
+        <div className="flex flex-col md:flex-row justify-between items-end mb-16 relative">
+          <div className="reveal">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="w-3 h-3 bg-orange-400 rounded-full" />
+              <span className="text-sm font-bold uppercase tracking-widest text-orange-500 italic">
+                Testimonials
+              </span>
+            </div>
+            <h2 className="font-display text-4xl font-black md:text-5xl text-[#3D5667]">
+              Parents Talk About Our School
+            </h2>
+          </div>
+
+          {/* Custom Navigation Container for Swiper Dots */}
+          <div className="testimonial-pagination hidden md:flex gap-2 mb-4" />
         </div>
 
-        <div className="grid gap-7 md:grid-cols-3">
-          {reviews.map((r, i) => (
-            <article
-              key={r.name}
-              className={`reveal relative overflow-hidden rounded-[2rem] ${r.bg} p-7 shadow-soft hover-lift`}
-              style={{ transitionDelay: `${i * 100}ms` }}
-            >
-              <Quote className="absolute right-5 top-5 h-12 w-12 text-white/60" />
-              <div className="flex gap-1 text-butter-deep">
-                {[...Array(5)].map((_, k) => (
-                  <Star key={k} className="h-4 w-4 fill-[#F3AF24] stroke-[#F3AF24]" />
-                ))}
-              </div>
-              <p className="mt-5 text-base leading-relaxed text-foreground/80">
-                &quot;{r.text}&quot;
-              </p>
-              <div className="mt-6 flex items-center gap-3">
-                <img
-                  src={r.img}
-                  alt={r.name}
-                  loading="lazy"
-                  width={512}
-                  height={512}
-                  className="h-12 w-12 rounded-full object-cover ring-2 ring-card"
-                />
-                <div>
-                  <p className="font-bold">{r.name}</p>
-                  <p className="text-xs text-foreground/70">{r.role}</p>
+        {/* --- Swiper Carousel --- */}
+        <div className="testimonial-swiper">
+          <Swiper
+            modules={[Pagination, Autoplay]}
+            spaceBetween={30}
+            slidesPerView={1}
+            loop={true}
+            autoplay={{ delay: 5000 }}
+            pagination={{
+              el: ".testimonial-pagination",
+              clickable: true,
+            }}
+            breakpoints={{
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+            className="overflow-visible!"
+          >
+            {reviews.map((r, i) => (
+              <SwiperSlide key={i}>
+                <div className="relative pt-12">
+                  {/* The Speech Bubble Shape */}
+                  <div 
+                    className="bg-[#FFF3D0] p-10 text-center relative shadow-sm"
+                    style={{ 
+                      borderRadius: "60% 40% 70% 30% / 40% 50% 60% 50%",
+                      minHeight: "300px",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      justifyContent: "center"
+                    }}
+                  >
+                    {/* User Image - Floating on top */}
+                    <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-24 h-24 rounded-full border-4 border-white overflow-hidden shadow-md bg-slate-200">
+                      <Image
+                        src={r.img}
+                        alt={r.role}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+
+                    {/* Content */}
+                    <h4 className="font-bold text-[#3D5667] text-lg mb-3 mt-4">
+                      {r.role}
+                    </h4>
+                    <p className="text-[#3D5667]/70 leading-relaxed text-sm">
+                      {r.text}
+                    </p>
+
+                    {/* The Bubble "Tail" */}
+                    <div 
+                       className="absolute -bottom-10 left-[40%] w-20 h-20 bg-[#FFF3D0]"
+                       style={{ 
+                         clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)",
+                         transform: "rotate(180deg) scaleX(0.5)",
+                         zIndex: -1
+                       }}
+                    />
+                  </div>
                 </div>
-              </div>
-            </article>
-          ))}
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </Wrapper>
+
+      {/* --- Custom Pagination Styles --- */}
+      <style jsx global>{`
+        .testimonial-pagination .swiper-pagination-bullet {
+          width: 14px;
+          height: 14px;
+          background: transparent;
+          border: 2px solid #FFD3C4;
+          opacity: 1;
+          margin: 0 4px;
+          transition: all 0.3s ease;
+        }
+        .testimonial-pagination .swiper-pagination-bullet-active {
+          background: #f97316 !important;
+          border-color: #f97316 !important;
+          transform: scale(1.2);
+        }
+      `}</style>
     </section>
   );
 }
