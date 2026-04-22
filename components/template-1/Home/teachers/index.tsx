@@ -1,20 +1,43 @@
 "use client";
 import Wrapper from "@/components/ui/Wrapper";
-import {
-  FacebookLogoIcon,
-  InstagramLogoIcon,
-  LinkedinLogoIcon,
-} from "@phosphor-icons/react";
+import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay } from "swiper/modules";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
 
 const teachers = [
-  { name: "Sarah Johnson", role: "Lead Educator", img: "https://images.pexels.com/photos/37148307/pexels-photo-37148307.jpeg", bg: "bg-peach" },
-  { name: "Mark Davis", role: "Science & Discovery", img: "https://images.pexels.com/photos/36687795/pexels-photo-36687795.jpeg", bg: "bg-sky" },
-  { name: "Linda Martinez", role: "Music & Arts", img: "https://images.pexels.com/photos/36803099/pexels-photo-36803099.jpeg", bg: "bg-mint" },
   {
-    name: "Emma Williams",
-    role: "Early Years Specialist",
-    img: "https://images.pexels.com/photos/34405831/pexels-photo-34405831.jpeg",
-    bg: "bg-lavender",
+    name: "Michele Bailey",
+    role: "Principle",
+    img: "/template-1/teachers/t1.png",
+    bg: "bg-[#D83C8C]",
+  },
+  {
+    name: "Brian Marsh",
+    role: "Senior Teacher",
+    img: "/template-1/teachers/t2.png",
+    bg: "bg-[#D88D56]",
+  },
+  {
+    name: "Brian Marsh",
+    role: "Senior Teacher",
+    img: "/template-1/teachers/t3.png",
+    bg: "bg-[#C4C9E8]",
+  },
+  {
+    name: "Sarah Johnson",
+    role: "Lead Educator",
+    img: "/template-1/teachers/t1.png",
+    bg: "bg-[#D83C8C]",
+  },
+  {
+    name: "Dawson Timm",
+    role: "Sports Teacher",
+    img: "/template-1/teachers/t4.png",
+    bg: "bg-[#1B5D97]",
   },
 ];
 
@@ -22,57 +45,107 @@ export default function Teachers() {
   return (
     <section
       id="teachers"
-      className="relative overflow-hidden py-24 bg-gradient-peach"
+      className="relative py-24 overflow-hidden font-quicksand"
     >
+      {/* Decorative Pencil/Cube Elements (Optional based on UI) */}
+      <div className="absolute top-10 right-10 w-12 h-12 rotate-12 opacity-80">
+        {/* Insert Cube Image here */}
+      </div>
+
       <Wrapper>
-        <div className="reveal mx-auto mb-14 max-w-2xl text-center">
-          <span className="text-sm font-bold uppercase tracking-widest text-primary">
-            Our Team
+        <div className="mx-auto mb-14 text-center">
+          <span className="text-orange-400 italic font-bold">
+            Honorable Teacher's
           </span>
-          <h2 className="mt-3 font-display text-4xl font-black md:text-5xl text-balance">
-            Meet The Teachers Behind The Smiles
+          <h2 className="mt-2 font-display text-4xl font-black md:text-5xl text-[#3D5667]">
+            Our Expert Teacher
           </h2>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {teachers.map((t, i) => (
-            <article
-              key={t.name}
-              className="reveal group overflow-hidden rounded-4xl bg-white p-4 shadow-soft transition-all duration-500 hover:-translate-y-2 hover:shadow-pop"
-              style={{ transitionDelay: `${i * 80}ms` }}
-            >
-              <div className={`relative overflow-hidden rounded-2xl ${t.bg}`}>
-                <img
-                  src={t.img}
-                  alt={t.name}
-                  loading="lazy"
-                  width={800}
-                  height={800}
-                  className="aspect-square w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-x-3 bottom-3 flex translate-y-12 justify-center gap-2 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-                  {[FacebookLogoIcon, InstagramLogoIcon, LinkedinLogoIcon].map(
-                    (Icon, k) => (
-                      <button
-                        key={k}
-                        className="grid h-10 w-10 place-items-center rounded-full bg-white text-primary-template-1 shadow-soft hover:bg-primary-template-1 hover:text-white"
-                      >
-                        <Icon className="h-4 w-4" />
-                      </button>
-                    ),
-                  )}
+        <div className="teacher-swiper-container">
+          <Swiper
+            modules={[Pagination, Autoplay]}
+            spaceBetween={30}
+            slidesPerView={1}
+            pagination={{ clickable: true }}
+            loop={true}
+            autoplay={{ delay: 4000 }}
+            breakpoints={{
+              640: { slidesPerView: 2 },
+              1024: { slidesPerView: 4 },
+            }}
+            className="pb-20!"
+          >
+            {teachers.map((t, i) => (
+              <SwiperSlide key={i}>
+                <div className="flex flex-col items-center">
+                  {/* The Blob Card */}
+                  <div className="relative w-full aspect-4/5 p-6 border-2 border-dashed border-slate-200 rounded-[5rem] flex items-center justify-center transition-all duration-300 hover:border-orange-200 bg-white/60">
+                    {/* Inner Colored Blob */}
+                    <div
+                      className={`relative w-full h-full overflow-hidden shadow-inner ${t.bg}`}
+                      style={{
+                        borderRadius: "40% 60% 40% 60% / 50% 50% 50% 50%",
+                      }}
+                    >
+                      <Image
+                        src={t.img}
+                        alt={t.name}
+                        fill
+                        className="object-cover object-top hover:scale-110 transition-transform duration-500"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Text Content */}
+                  <div className="mt-6 text-center">
+                    <h3 className="text-xl font-bold text-[#3D5667]">
+                      {t.name}
+                    </h3>
+                    <p className="text-slate-400 text-sm mt-1">{t.role}</p>
+                  </div>
                 </div>
-              </div>
-              <div className="px-2 pt-5 pb-3 text-center">
-                <h3 className="font-display text-xl font-black">{t.name}</h3>
-                <p className="mt-1 text-sm font-medium text-primary-template-1">
-                  {t.role}
-                </p>
-              </div>
-            </article>
-          ))}
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </Wrapper>
+
+      {/* shapes */}
+
+      <Wrapper className="relative h-2 ">
+        <div className="absolute left-2 bottom-20 block animate-upside-down w-fit">
+          <Image
+            alt="pencil-shape"
+            src={"/template-1/hero/shape-5.png"}
+            width={150}
+            height={80}
+          />
+        </div>
+        <div className="absolute left-3/4 bottom-186 animate-tilt w-fit">
+          <Image
+            alt="cloud-shape"
+            src={"/template-1/hero/shape-2.png"}
+            width={80}
+            height={80}
+          />
+        </div>
+      </Wrapper>
+
+      {/* Custom Styles for Swiper Dots */}
+      <style jsx global>{`
+        .teacher-swiper-container .swiper-pagination-bullet {
+          width: 14px;
+          height: 14px;
+          background: transparent;
+          border: 2px solid #ffd3c4;
+          opacity: 1;
+        }
+        .teacher-swiper-container .swiper-pagination-bullet-active {
+          background: #d88d56 !important;
+          border-color: #d88d56 !important;
+        }
+      `}</style>
     </section>
   );
 }

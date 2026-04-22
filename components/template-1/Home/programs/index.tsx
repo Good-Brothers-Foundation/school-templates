@@ -10,6 +10,7 @@ import { motion } from "motion/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import Wrapper from "@/components/ui/Wrapper";
+import { ArrowUpRight } from "lucide-react";
 
 const PROGRAM_DATA = [
   {
@@ -108,7 +109,7 @@ export default function ProgramsSection() {
         </div>
 
         {/* ── 2. Swiper Carousel ── */}
-        <div className="w-full max-w-6xl px-6">
+        <div className="w-full max-w-6xl px-6 bg-white rounded-3xl  shadow-sm p-8">
           <Swiper
             modules={[Pagination, Autoplay]}
             spaceBetween={30}
@@ -116,15 +117,15 @@ export default function ProgramsSection() {
             pagination={{ clickable: true }}
             autoplay={{ delay: 3000 }}
             breakpoints={{
-              640: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 },
+              640: { slidesPerView: 2.5 },
+              1024: { slidesPerView: 3.5 },
             }}
             className="program-swiper pb-14!"
           >
             {PROGRAM_DATA.map((item, idx) => (
               <SwiperSlide key={idx}>
                 <div
-                  className={`rounded-[3rem] p-8 ${item.color} flex flex-col items-center text-center shadow-sm border border-white/50 h-full`}
+                  className={`rounded-[3rem] p-4 ${item.color} flex flex-col items-center text-center border border-white/50 h-full`}
                 >
                   {/* Card Image */}
                   <div className="relative w-full h-45 mb-6 rounded-4xl overflow-hidden">
@@ -146,28 +147,15 @@ export default function ProgramsSection() {
                     {item.desc}
                   </p>
 
-                  <div className="mt-auto flex items-center gap-2 bg-white/60 px-4 py-1 rounded-full border border-white text-xs font-bold text-slate-600">
+                  {/* <div className="mt-auto flex items-center gap-2 bg-white/60 px-4 py-1 rounded-full border border-white text-xs font-bold text-slate-600">
                     Duration: {item.duration}
-                  </div>
+                  </div> */}
 
                   {/* Bottom Icon */}
                   <div
-                    className={`mt-6 w-10 h-10 rounded-full ${item.dotColor} flex items-center justify-center text-white`}
+                    className={`w-10 h-10 rounded-full ${item.dotColor} flex items-center justify-center text-white`}
                   >
-                    <svg
-                      width="16"
-                      height="16"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={3}
-                        d="M14 5l7 7m0 0l-7 7m7-7H3"
-                      />
-                    </svg>
+                    <ArrowUpRight />
                   </div>
                 </div>
               </SwiperSlide>
