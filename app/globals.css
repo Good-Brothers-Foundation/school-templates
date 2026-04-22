@@ -5,6 +5,10 @@
   --foreground: #171717;
   --primary-template-1: #f39f5f;
   --secondary-template-1: #385469;
+
+  /* Gradients */
+  --gradient-warm: linear-gradient(135deg, hsl(22 92% 62%) 0%, hsl(340 75% 65%) 100%);
+  --gradient-sky: linear-gradient(135deg, hsl(200 90% 92%) 0%, hsl(265 80% 92%) 100%);
 }
 
 @theme inline {
@@ -18,6 +22,11 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-quicksand: var(--font-quick-sand);
+}
+
+@layer utilities {
+  .bg-gradient-warm { background: var(--gradient-warm); }
+  .bg-gradient-sky { background: var(--gradient-sky); }
 }
 
 /* @media (prefers-color-scheme: dark) {

@@ -1,3 +1,4 @@
+import Footer from "@/components/template-1/footer";
 import Navbar from "@/components/template-1/Navbar";
 
 export default function temp1RootLayout({
@@ -9,6 +10,7 @@ export default function temp1RootLayout({
     <>
       <Navbar />
       <main>{children}</main>
+      <Footer />
     </>
   );
 }

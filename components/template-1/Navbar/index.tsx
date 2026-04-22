@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback, useRef } from "react";
 import { cn } from "@/lib/utils";
-import { Menu, Search } from "lucide-react";
+import { Menu } from "lucide-react";
 import Logo from "./Logo";
 import NavLinks from "./Navlinks";
 import AppButton from "@/components/template-1/AppButton";
