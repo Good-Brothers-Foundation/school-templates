@@ -28,7 +28,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative bg-[#FFF9EA] pt-20 font-quicksand overflow-hidden">
+    <footer className="relative z-10 bg-[#FFF9EA] pt-20 font-quicksand overflow-hidden">
       <Wrapper>
         {/* --- Top Section: Logo and Branch Cards --- */}
         <div className="grid gap-10 lg:grid-cols-12 mb-16">
@@ -173,7 +173,7 @@ export default function Footer() {
       </div>
 
       {/* shapes */}
-      <Wrapper className="relative h-0 min-w-full border-2">
+      <Wrapper className="relative h-0 min-w-full border-2 z-9">
         <div className="absolute -left-5 bottom-20 block animate-upside-down w-fit">
           <Image
             alt="bee-shape"

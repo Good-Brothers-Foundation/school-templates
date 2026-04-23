@@ -134,7 +134,7 @@ export default function Hero() {
 
       {/* Cloud Bottom Divider */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-0 h-38 scale-105">
-       <Image src={"/template-1/hero/cloud.png"} alt="cloud image" fill className="w-full" />
+       <Image src={"/template-1/hero/cloud.png"} alt="cloud image" fill className="w-full max-md:object-cover" />
       </div>
     </section>
   );

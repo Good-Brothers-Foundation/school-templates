@@ -64,8 +64,8 @@ const blobShapes = [
 export default function Features() {
   return (
     <section
-      className="relative overflow-hidden py-20 px-4 font-quicksand"
-      style={{ background: "#fdf6f0" }}
+      className="relative overflow-hidden px-4 font-quicksand"
+      style={{ background: "#fff" }}
     >
       <style>
         {`
@@ -124,7 +124,7 @@ export default function Features() {
       </div>
 
       {/* ── Right decorative image (giraffe) ── */}
-      <div className="pointer-events-none absolute bottom-0 right-4 w-32 select-none hidden md:block">
+      <div className="pointer-events-none absolute z-10 bottom-20 right-0 w-32 select-none hidden md:block">
         <Image
           src="/template-1/features/girraf.png"
           alt="girraf image"
@@ -136,7 +136,12 @@ export default function Features() {
       </div>
 
       {/* ── Feature grid ── */}
-      <Wrapper className="relative z-10 ">
+      <Wrapper
+        className="relative z-9 bg-[#FFF9EA] py-20 mb-40"
+        style={{
+          borderRadius: "25% 15% 28% 12%",
+        }}
+      >
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 place-items-center">
           {features.map((item, idx) => (
             <div
@@ -173,7 +178,7 @@ export default function Features() {
 
               {/* Label */}
               <h3
-                className={`font-brand font-bold tracking-wide text-2xl w-fit shadow-2xl py-2 px-3 rounded-2xl`}
+                className={`font-brand font-bold tracking-wide text-2xl w-fit shadow-sm py-2 px-3 rounded-2xl`}
                 style={{ color: item.iconColor, background: item.blobBg }}
               >
                 {item.title}
@@ -182,6 +187,16 @@ export default function Features() {
           ))}
         </div>
       </Wrapper>
+
+      {/* Cloud Bottom Divider */}
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-0 h-38 scale-105 scale-y-100 bg-[#FFF9EA] rotate-180">
+        <Image
+          src={"/template-1/hero/cloud.png"}
+          alt="cloud image"
+          fill
+          className="w-full max-md:object-cover"
+        />
+      </div>
     </section>
   );
 }

@@ -89,8 +89,8 @@ function Dropdown({ items }: { items: readonly { label: string; href: string }[]
   return (
     <div
       className={cn(
-        'absolute top-[calc(100%+8px)] left-1/2 -translate-x-1/2',
-        'min-w-[170px] rounded-xl bg-white shadow-dropdown',
+        'absolute top-[calc(100%+2px)] left-1/2 -translate-x-1/2',
+        'min-w-42.5 rounded-xl bg-white shadow-dropdown',
         'p-1.5 z-50 animate-dropdown-fade',
       )}
       role="menu"
@@ -101,9 +101,9 @@ function Dropdown({ items }: { items: readonly { label: string; href: string }[]
           href={item.href}
           role="menuitem"
           className={cn(
-            'block px-3.5 py-2 rounded-lg text-[0.875rem] font-medium text-secondary',
+            'block px-3.5 py-2 rounded-lg text-[0.875rem] font-medium ',
             'transition-colors duration-150',
-            'hover:bg-primary/10 hover:text-primary',
+            'hover:bg-primary-template-1/10 hover:text-primary-template-1',
           )}
         >
           {item.label}
@@ -142,10 +142,10 @@ export default function NavLinks({ scrolled }: NavLinksProps) {
                 aria-expanded={isOpen}
                 className={cn(
                   'inline-flex items-center gap-1 px-3.5 py-2 rounded-lg',
-                  'text-[0.9rem] font-medium text-secondary whitespace-nowrap',
+                  'text-[0.9rem] font-medium whitespace-nowrap',
                   'transition-colors duration-150',
                   scrolled
-                    ? 'hover:bg-primary/8 hover:text-primary'
+                    ? 'text-primary-template-1 hover:bg-primary-template-1/18 hover:text-primary-template-1'
                     : 'hover:bg-white/25 hover:text-primary',
                 )}
               >

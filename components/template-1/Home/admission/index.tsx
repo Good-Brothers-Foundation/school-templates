@@ -12,7 +12,7 @@ const steps = [
 
 export default function Admission() {
   return (
-    <section id="admission" className="relative overflow-hidden bg-gradient-sky py-24 font-quicksand">
+    <section id="admission" className="relative overflow-hidden bg-[#e7ddfc] pt-24 pb-12 font-quicksand">
       <Wrapper>
         <div className="reveal mx-auto mb-14 max-w-2xl text-center">
           <span className="text-sm font-bold uppercase tracking-widest text-primary-template-1">Admission Process</span>

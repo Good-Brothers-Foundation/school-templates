@@ -3,12 +3,13 @@
 import Wrapper from "@/components/ui/Wrapper";
 import Image from "next/image";
 import AppButton from "../../AppButton";
+import TextFlipper from "@/components/ui/TextFlipper";
 
 // ─── Feature check-card ───────────────────────────────────────────────────────
 
 function FeatureCard({ text }: { text: string }) {
   return (
-    <div className="flex items-center gap-3 bg-white rounded-xl px-4 py-3 shadow-sm border border-slate-100">
+    <div className="flex items-center gap-3 bg-white rounded-xl px-4 py-3 shadow-sm shadow-primary-template-1 ">
       {/* Orange check circle */}
       <span
         className="shrink-0 flex items-center justify-center w-8 h-8 rounded-full"
@@ -25,7 +26,7 @@ function FeatureCard({ text }: { text: string }) {
           />
         </svg>
       </span>
-      <p className="text-[0.82rem] font-semibold text-secondary leading-snug">
+      <p className="text-[0.82rem] font-semibold text-primary-template-1 leading-snug">
         {text}
       </p>
     </div>
@@ -42,16 +43,15 @@ function PhoneCTA() {
       aria-label="Call us now"
     >
       {/* Dark circle icon */}
-      <span
-        className="shrink-0 flex items-center justify-center w-11 h-11 rounded-full transition-colors duration-200 group-hover:opacity-80"
-        style={{ background: "var(--secondary-template-2)" }}
-      >
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-          <path
-            d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"
-            fill="#fff"
-          />
-        </svg>
+      <span className="shrink-0 flex items-center justify-center w-11 h-11 rounded-xl transition-colors duration-200 group-hover:opacity-80 bg-primary-template-1">
+        <TextFlipper>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"
+              fill="#fff"
+            />
+          </svg>
+        </TextFlipper>
       </span>
 
       <div className="flex flex-col leading-tight">
@@ -73,36 +73,14 @@ function PhoneCTA() {
 
 function CurlyArrows() {
   return (
-    <svg
-      width="52"
-      height="36"
-      viewBox="0 0 52 36"
-      fill="none"
-      aria-hidden="true"
-      className="absolute top-6 left-[38%] opacity-80 pointer-events-none"
-    >
-      {[0, 14, 28].map((x) => (
-        <path
-          key={x}
-          d={`M${x + 2},28 C${x + 2},20 ${x + 10},12 ${x + 10},6`}
-          stroke="#5c6bc0"
-          strokeWidth="2.2"
-          strokeLinecap="round"
-          fill="none"
-        />
-      ))}
-      {[0, 14, 28].map((x) => (
-        <path
-          key={`h-${x}`}
-          d={`M${x + 8},4 L${x + 10},6 L${x + 12},4`}
-          stroke="#5c6bc0"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          fill="none"
-        />
-      ))}
-    </svg>
+    <div className="absolute top-12 left-1/2 -translate-x-full">
+      <Image
+        src={"/template-1/about/about-vec.png"}
+        alt={"colon image"}
+        width={60}
+        height={60}
+      />
+    </div>
   );
 }
 
@@ -231,10 +209,10 @@ export default function AboutSection() {
 
             {/* Secondary body */}
             <p className="text-slate-500 text-[18px] font-semibold">
-              At CS Global Primary School, our aim is to give everyone a chance to learn a new
-              language. Our skilled team creates fun and useful lessons so each
-              student can reach their goals. We&apos;re here to help you gain skills
-              for both work and life.
+              At CS Global Primary School, our aim is to give everyone a chance
+              to learn a new language. Our skilled team creates fun and useful
+              lessons so each student can reach their goals. We&apos;re here to
+              help you gain skills for both work and life.
             </p>
 
             {/* Divider */}
