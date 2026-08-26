@@ -15,6 +15,7 @@ export interface NavItem {
   title: string;
   expandable?: boolean;
   subItems?: SubItem[];
+  href?: string;
 }
 
 export default function NavMenuItem({
@@ -29,6 +30,28 @@ export default function NavMenuItem({
   const title = isObject ? item.title : item;
   const hasSubItems =
     isObject && item.expandable && item.subItems && item.subItems.length > 0;
+
+  if (isObject && !hasSubItems) {
+    const href = item.href || `/${title.toLowerCase().replace(/\s+/g, "-")}`;
+    return (
+      <div className="border-b border-white/10 last:border-0">
+        <Link
+          href={href}
+          onClick={onClose}
+          className={cn(
+            "flex w-full items-center justify-between p-4 group transition-all duration-200 rounded-lg",
+            "hover:bg-primary-template-1/25 focus:outline-none focus-visible:ring-2 focus-visible:ring-white text-white/80",
+          )}
+        >
+          <span className="font-semibold text-[1.05rem]">{title}</span>
+          <ArrowRight
+            size={18}
+            className="text-white opacity-60 group-hover:opacity-100 transition-opacity cursor-pointer"
+          />
+        </Link>
+      </div>
+    );
+  }
 
   return (
     <div className="border-b border-white/10 last:border-0">
@@ -68,14 +91,13 @@ export default function NavMenuItem({
           )}
         >
           <div className="flex flex-col py-2 px-4 gap-2">
-            {item.subItems!.map((sub, idx) => (
+            {(item as NavItem).subItems!.map((sub, idx) => (
               <Link
                 key={idx}
                 href={sub.href}
                 onClick={onClose}
                 className="text-sm text-white hover:text-white transition-colors py-2 flex items-center gap-2 rounded hover:bg-white/5 px-2"
               >
-                {/* <span className="h-1.5 w-1.5 bg-white/40 rounded-full" /> */}
                 {sub.title}
               </Link>
             ))}
@@ -85,3 +107,4 @@ export default function NavMenuItem({
     </div>
   );
 }
+

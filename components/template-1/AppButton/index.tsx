@@ -1,7 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import { type ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/utils";
 import TextFlipper from "@/components/ui/TextFlipper";
+import { useFormContext } from "@/components/template-1/context/FormContext";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -72,6 +75,8 @@ function CircleArrow() {
 export default function AppButton(props: AppButtonProps) {
   const { type = "primary", icon = false, className, children } = props;
   const classes = cn("group", base, variants[type], className);
+  
+  const formContext = useFormContext();
 
   const content = (
     <>
@@ -89,10 +94,30 @@ export default function AppButton(props: AppButtonProps) {
       icon: _i,
       className: _c,
       children: _ch,
+      onClick,
       ...rest
     } = props as AnchorProps;
+
+    const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+      const isCta =
+        href === "#" ||
+        href === "/contact" ||
+        href === "/enroll" ||
+        href === "/visit" ||
+        href.startsWith("/contact") ||
+        href.startsWith("/enroll") ||
+        href.startsWith("/visit");
+
+      if (isCta) {
+        e.preventDefault();
+        formContext.openForm();
+      } else if (onClick) {
+        onClick(e);
+      }
+    };
+
     return (
-      <Link href={href} className={classes} {...rest}>
+      <Link href={href} className={classes} onClick={handleAnchorClick} {...rest}>
         {content}
       </Link>
     );
@@ -105,16 +130,28 @@ export default function AppButton(props: AppButtonProps) {
     icon: _i,
     className: _c,
     children: _ch,
+    onClick,
     ...rest
   } = props as NativeButtonProps;
+
+  const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (onClick) {
+      onClick(e);
+    } else {
+      formContext.openForm();
+    }
+  };
+
   return (
     <button
       type={htmlType}
       className={cn(classes, disabled && "opacity-40 pointer-events-none ")}
       disabled={disabled}
+      onClick={handleButtonClick}
       {...rest}
     >
       {content}
     </button>
   );
 }
+

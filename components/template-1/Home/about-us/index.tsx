@@ -209,7 +209,7 @@ export default function AboutSection() {
 
             {/* Secondary body */}
             <p className="text-slate-500 text-[18px] font-semibold">
-              At CS Global Primary School, our aim is to give everyone a chance
+              At Kingdom Kindergarten, our aim is to give everyone a chance
               to learn a new language. Our skilled team creates fun and useful
               lessons so each student can reach their goals. We&apos;re here to
               help you gain skills for both work and life.

@@ -55,7 +55,7 @@ export default function Teachers() {
       <Wrapper>
         <div className="mx-auto mb-14 text-center">
           <span className="text-orange-400 italic font-bold">
-            Honorable Teacher's
+            Honorable Teacher&apos;s
           </span>
           <h2 className="mt-2 font-display text-4xl font-black md:text-5xl text-[#3D5667]">
             Our Expert Teacher

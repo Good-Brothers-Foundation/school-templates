@@ -12,18 +12,11 @@ import Image from "next/image";
 export default function Footer() {
   const branches = [
     {
-      name: "New York Branch",
-      flag: "🇺🇸",
-      address: "House 25, Road 10, New York, city 652, USA",
-      phone: "+110 1819-987021",
-      email: "info@example.com",
-    },
-    {
-      name: "Canada Branch",
-      flag: "🇨🇦",
-      address: "House 25, Road 10, New York, city 652, USA",
-      phone: "+110 1819-987021",
-      email: "info@example.com",
+      name: "Main Branch (Delhi)",
+      flag: "🇮🇳",
+      address: "2nd floor 86/3, Sant Nagar Marg, Parvatiya Anchal, Maurya Enclave, Baba Colony, Burari, Delhi, India 110084",
+      phone: "+91 99999 99999",
+      email: "contact.businesskiduniya@gmail.com",
     },
   ];
 
@@ -53,7 +46,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="lg:col-span-8 grid gap-6 md:grid-cols-2">
+          <div className="lg:col-span-8 grid gap-6 md:grid-cols-1">
             {branches.map((branch, i) => (
               <div
                 key={i}
@@ -168,7 +161,7 @@ export default function Footer() {
         </div>
 
         <div className="absolute inset-x-0 bottom-6 text-center text-sm font-medium text-slate-600">
-          Copyright © CS Global Primary School All Rights Reserved.
+          Copyright © Kingdom Kindergarten All Rights Reserved.
         </div>
       </div>
 

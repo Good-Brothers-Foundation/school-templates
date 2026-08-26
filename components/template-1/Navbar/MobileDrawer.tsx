@@ -7,9 +7,9 @@ import { cn } from "@/lib/utils";
 import Logo from "./Logo";
 import { ArrowRight, X } from "lucide-react";
 import Link from "next/link";
+import { useFormContext } from "@/components/template-1/context/FormContext";
 
-
-const NAV_ITEMS_DATA: (NavItem | string)[] = [
+const NAV_ITEMS_DATA: NavItem[] = [
   {
     title: "Home",
     expandable: true,
@@ -19,8 +19,8 @@ const NAV_ITEMS_DATA: (NavItem | string)[] = [
       { title: "Play School", href: "/play-school" },
     ],
   },
-  "About Us",
-  "Programs",
+  { title: "About Us", href: "/about" },
+  { title: "Programs", href: "/programs" },
   {
     title: "Pages",
     expandable: true,
@@ -30,10 +30,8 @@ const NAV_ITEMS_DATA: (NavItem | string)[] = [
       { title: "FAQ", href: "/faq" },
     ],
   },
-  "Blog",
+  { title: "Blog", href: "/blog" },
 ];
-
-
 
 export default function MobileDrawer({
   isOpen,
@@ -42,6 +40,8 @@ export default function MobileDrawer({
   isOpen: boolean;
   onClose: () => void;
 }) {
+  const formContext = useFormContext();
+
   // Handle escape key
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
@@ -62,6 +62,12 @@ export default function MobileDrawer({
       document.body.style.overflow = "";
     };
   }, [isOpen]);
+
+  const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    onClose();
+    formContext.openForm();
+  };
 
   return (
     <>
@@ -105,7 +111,7 @@ export default function MobileDrawer({
 
             <Link
               href="/contact"
-              onClick={onClose}
+              onClick={handleContactClick}
               className="flex items-center justify-between font-semibold text-[1.05rem] p-4 mt-2 hover:bg-primary-template-1/80 transition-colors rounded-lg group"
             >
               <span className="text-white/80">Contact</span>
@@ -116,20 +122,21 @@ export default function MobileDrawer({
             </Link>
           </nav>
 
+
           <div className="space-y-6 mb-12">
             <h4 className="text-xl font-bold text-white">Contact Info</h4>
             <div className="space-y-4 text-sm text-white/80">
               <div>
                 <p className="font-bold text-white mb-0.5">Phone</p>
-                <p>+1 (800) 555-0123</p>
+                <p>+91 99999 99999</p>
               </div>
               <div>
                 <p className="font-bold text-white mb-0.5">Email</p>
-                <p>hello@kidzu.com</p>
+                <p>contact.businesskiduniya@gmail.com</p>
               </div>
               <div>
                 <p className="font-bold text-white mb-0.5">Location</p>
-                <p>374 William S Canning Blvd, USA</p>
+                <p>2nd floor 86/3, Sant Nagar Marg, Burari, Delhi, 110084</p>
               </div>
             </div>
           </div>

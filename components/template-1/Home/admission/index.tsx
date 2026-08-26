@@ -7,7 +7,7 @@ const steps = [
   { icon: FileText, title: "Fill The Form", desc: "Submit a quick online application in minutes." },
   { icon: School, title: "School Visit", desc: "Tour our campus and meet the teachers." },
   { icon: MessageCircle, title: "Friendly Interaction", desc: "A relaxed chat with your child and family." },
-  { icon: PartyPopper, title: "Admission Confirmed", desc: "Welcome to the SunnySprouts family!" },
+  { icon: PartyPopper, title: "Admission Confirmed", desc: "Welcome to the Kingdom Kindergarten family!" },
 ];
 
 export default function Admission() {
@@ -48,8 +48,8 @@ export default function Admission() {
         </ol>
 
         <div className="reveal mt-14 text-center">
-          <AppButton icon>
-            <a href="#contact">Start Your Application</a>
+          <AppButton icon href="/contact">
+            Start Your Application
           </AppButton>
         </div>
       </Wrapper>

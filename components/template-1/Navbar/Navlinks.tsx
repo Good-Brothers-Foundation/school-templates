@@ -9,10 +9,10 @@ import { cn } from '@/lib/utils'
 const NAV_ITEMS = [
   {
     label: 'Home',
-    href: '/',
+    href: '/template-1',
     children: [
-      { label: 'Welcome',  href: '/' },
-      { label: 'Features', href: '/#features' },
+      { label: 'Welcome',  href: '/template-1' },
+      { label: 'Features', href: '/features' },
     ],
   },
   {
