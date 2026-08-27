@@ -25,7 +25,7 @@ export async function connectDB() {
     };
 
     cached.promise = mongoose.connect(MONGO_URI, opts).then((m) => {
-      console.log("MongoDB connected successfully to playschool database.");
+      console.log("MongoDB connected successfully to playschool db.");
       return m;
     });
   }
