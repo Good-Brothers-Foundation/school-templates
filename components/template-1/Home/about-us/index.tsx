@@ -4,6 +4,7 @@ import Wrapper from "@/components/ui/Wrapper";
 import Image from "next/image";
 import AppButton from "../../AppButton";
 import TextFlipper from "@/components/ui/TextFlipper";
+import { useSiteConfig } from "@/components/context/SiteConfigContext";
 
 // ─── Feature check-card ───────────────────────────────────────────────────────
 
@@ -121,6 +122,8 @@ function AlphabetBlocks() {
 // ─── About Section ────────────────────────────────────────────────────────────
 
 export default function AboutSection() {
+  const { config } = useSiteConfig();
+
   return (
     <section
       className="py-14 px-4 md:px-8 font-quicksand"
@@ -209,7 +212,7 @@ export default function AboutSection() {
 
             {/* Secondary body */}
             <p className="text-slate-500 text-[18px] font-semibold">
-              At Kingdom Kindergarten, our aim is to give everyone a chance
+              At {config.title}, our aim is to give everyone a chance
               to learn a new language. Our skilled team creates fun and useful
               lessons so each student can reach their goals. We&apos;re here to
               help you gain skills for both work and life.

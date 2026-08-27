@@ -8,15 +8,17 @@ import {
 import Wrapper from "@/components/ui/Wrapper";
 import Logo from "../Navbar/Logo";
 import Image from "next/image";
+import { useSiteConfig } from "@/components/context/SiteConfigContext";
 
 export default function Footer() {
+  const { config } = useSiteConfig();
   const branches = [
     {
       name: "Main Branch (Delhi)",
       flag: "🇮🇳",
-      address: "2nd floor 86/3, Sant Nagar Marg, Parvatiya Anchal, Maurya Enclave, Baba Colony, Burari, Delhi, India 110084",
-      phone: "+91 99999 99999",
-      email: "contact.businesskiduniya@gmail.com",
+      address: config.address,
+      phone: config.mobile,
+      email: config.email,
     },
   ];
 
@@ -161,7 +163,7 @@ export default function Footer() {
         </div>
 
         <div className="absolute inset-x-0 bottom-6 text-center text-sm font-medium text-slate-600">
-          Copyright © Kingdom Kindergarten All Rights Reserved.
+          Copyright © {config.title} All Rights Reserved.
         </div>
       </div>
 

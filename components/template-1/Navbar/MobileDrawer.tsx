@@ -8,6 +8,7 @@ import Logo from "./Logo";
 import { ArrowRight, X } from "lucide-react";
 import Link from "next/link";
 import { useFormContext } from "@/components/template-1/context/FormContext";
+import { useSiteConfig } from "@/components/context/SiteConfigContext";
 
 const NAV_ITEMS_DATA: NavItem[] = [
   {
@@ -41,6 +42,7 @@ export default function MobileDrawer({
   onClose: () => void;
 }) {
   const formContext = useFormContext();
+  const { config } = useSiteConfig();
 
   // Handle escape key
   useEffect(() => {
@@ -96,15 +98,15 @@ export default function MobileDrawer({
           <Logo /> {/* Ensure Logo supports light variant */}
           <button
             onClick={onClose}
-            className="p-2 rounded-full hover:bg-white/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white cursor-pointer"
+            className="rounded-full p-2 text-white/80 hover:bg-white/10 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white"
             aria-label="Close menu"
           >
-            <X size={24} strokeWidth={1.5} />
+            <X size={24} />
           </button>
         </div>
 
-        <div className="px-4 py-6">
-          <nav className="mb-10">
+        <div className="p-6 flex flex-col justify-between min-h-[calc(100vh-80px)]">
+          <nav className="flex flex-col gap-1 mb-12">
             {NAV_ITEMS_DATA.map((item, index) => (
               <NavMenuItem key={index} item={item} onClose={onClose} />
             ))}
@@ -128,15 +130,15 @@ export default function MobileDrawer({
             <div className="space-y-4 text-sm text-white/80">
               <div>
                 <p className="font-bold text-white mb-0.5">Phone</p>
-                <p>+91 99999 99999</p>
+                <p>{config.mobile}</p>
               </div>
               <div>
                 <p className="font-bold text-white mb-0.5">Email</p>
-                <p>contact.businesskiduniya@gmail.com</p>
+                <p>{config.email}</p>
               </div>
               <div>
                 <p className="font-bold text-white mb-0.5">Location</p>
-                <p>2nd floor 86/3, Sant Nagar Marg, Burari, Delhi, 110084</p>
+                <p>{config.address}</p>
               </div>
             </div>
           </div>

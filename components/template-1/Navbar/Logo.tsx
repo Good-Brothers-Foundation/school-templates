@@ -1,8 +1,12 @@
+"use client";
 import Link from 'next/link'
+import { useSiteConfig } from '@/components/context/SiteConfigContext'
 
 export default function Logo() {
+  const { config } = useSiteConfig();
+
   return (
-    <Link href="/template-1" className="flex items-center gap-2 shrink-0" aria-label="Kingdom Kindergarten home">
+    <Link href="/template-1" className="flex items-center gap-2 shrink-0" aria-label={`${config.title} home`}>
       {/* Star-figure icon */}
       <svg
         width="38"
@@ -26,7 +30,7 @@ export default function Logo() {
       </svg>
 
       <span className="font-brand font-black text-[1.6rem] leading-none tracking-tight text-primary-template-1">
-        KINGDOM
+        {config.title}
       </span>
     </Link>
   )

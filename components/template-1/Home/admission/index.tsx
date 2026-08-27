@@ -1,16 +1,19 @@
+"use client";
 import { FileText, School, MessageCircle, PartyPopper } from "lucide-react";
 import AppButton from "../../AppButton";
 import Wrapper from "@/components/ui/Wrapper";
-
-
-const steps = [
-  { icon: FileText, title: "Fill The Form", desc: "Submit a quick online application in minutes." },
-  { icon: School, title: "School Visit", desc: "Tour our campus and meet the teachers." },
-  { icon: MessageCircle, title: "Friendly Interaction", desc: "A relaxed chat with your child and family." },
-  { icon: PartyPopper, title: "Admission Confirmed", desc: "Welcome to the Kingdom Kindergarten family!" },
-];
+import { useSiteConfig } from "@/components/context/SiteConfigContext";
 
 export default function Admission() {
+  const { config } = useSiteConfig();
+
+  const steps = [
+    { icon: FileText, title: "Fill The Form", desc: "Submit a quick online application in minutes." },
+    { icon: School, title: "School Visit", desc: "Tour our campus and meet the teachers." },
+    { icon: MessageCircle, title: "Friendly Interaction", desc: "A relaxed chat with your child and family." },
+    { icon: PartyPopper, title: "Admission Confirmed", desc: `Welcome to the ${config.title} family!` },
+  ];
+
   return (
     <section id="admission" className="relative overflow-hidden bg-[#e7ddfc] pt-24 pb-12 font-quicksand">
       <Wrapper>
